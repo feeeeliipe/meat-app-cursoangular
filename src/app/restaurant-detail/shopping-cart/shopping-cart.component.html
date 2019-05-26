@@ -22,7 +22,7 @@
 
             <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
             <td class="text-right">
-              <a (click)="removeItem()" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+              <a (click)="removeItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
             </td>
 
           </tr>
@@ -38,7 +38,7 @@
   <div class="box-footer" *ngIf="items().length">
     <div class="pull-right">
       <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
-      <a href="order.html" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+      <a [routerLink]="['/order']" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
     </div>
   </div>
 </div>
