@@ -5,16 +5,59 @@
 <section class="content">
   <section class="invoice">
 
-        <form #form="ngForm" novalidate>
+        <form [formGroup]="orderForm" novalidate>
           <div class="row">
             <div class="col-xs-12">
               <h2 class="page-header">
                 <i class="fa fa-shopping-cart"></i> Finalize o seu pedido
               </h2>
             </div>
-          </div>                
+          </div>         
+          
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="lead">Seus Dados:</p>
+            </div>
 
-          <div class="row invoice-info">
+            <div class="col-sm-6 col-xs-12">
+              <mt-input-container
+                  errorMessage="Campo obrigatório"
+                  successMessage="Ok"
+                  label="Nome">
+                <input placeholder="Nome" 
+                       class="form-control" 
+                       formControlName="name" 
+                       autocomplete="off"/>
+              </mt-input-container>
+            </div>
+
+            <div class="col-sm-6 col-xs-12">
+              <mt-input-container
+                  errorMessage="Campo obrigatório"
+                  successMessage="Ok"
+                  label="E-mail">
+                <input placeholder="E-mail" 
+                       class="form-control" 
+                       formControlName="email" 
+                       autocomplete="off"/>
+              </mt-input-container>
+            </div>
+
+            <div class="col-sm-6 col-xs-12">
+              <mt-input-container
+                  errorMessage="Campo obrigatório"
+                  successMessage="Ok"
+                  label="Confirmação do E-mail">
+                <input placeholder="Confirmação do E-mail" 
+                       class="form-control" 
+                       formControlName="emailConfirmation" 
+                       autocomplete="off"/>
+              </mt-input-container>
+            </div>
+
+          </div>
+
+          <div class="row">
             <div class="col-xs-12">
               <p class="lead">Endereço de Entrega:</p>
             </div>
@@ -25,7 +68,10 @@
                   successMessage="Ok"
                   label="Endereço">
 
-                <input placeholder="Endereço" class="form-control" name="address" ngModel required minlength="5" autocomplete="off"/>
+                <input placeholder="Endereço" 
+                       class="form-control" 
+                       formControlName="address" 
+                       autocomplete="off"/>
 
               </mt-input-container>
             </div>
@@ -36,7 +82,12 @@
                     successMessage="Ok"
                     label="Número">
   
-                  <input pattern="^[0-9]*$" placeholder="Número" type="text" class="form-control" name="number" ngModel required autocomplete="off"/>
+                  <input pattern="^[0-9]*$" 
+                         placeholder="Número" 
+                         type="text" 
+                         class="form-control" 
+                         formControlName="number" 
+                         autocomplete="off"/>
   
                 </mt-input-container>
             </div>
@@ -47,7 +98,11 @@
                     successMessage="Ok"
                     label="Complemento">
   
-                  <input placeholder="Complemento" type="text" class="form-control" name="optionalAddress" ngModel autocomplete="off"/>
+                  <input placeholder="Complemento" 
+                         type="text" 
+                         class="form-control" 
+                         formControlName="optionalAddress" 
+                         autocomplete="off"/>
   
                 </mt-input-container>
             </div>
@@ -81,7 +136,9 @@
               <p class="lead">Formas de Pagamento:</p>
 
                 <div class="form-group">
-                  <mt-radio [options]="paymentOptions" name="paymentOption" ngModel required></mt-radio>   
+                  <mt-radio [options]="paymentOptions" 
+                            formControlName="paymentOption">
+                  </mt-radio>   
                 </div>
 
             </div>
@@ -103,10 +160,10 @@
 
         <div class="row">
           <div class="col-xs-12">
-            <button (click)="checkoutOrder(form.value)"
+            <button (click)="checkoutOrder(orderForm.value)"
                     href="order-summary.html" 
                     class="btn btn-success pull-right" 
-                    [disabled]="!form.valid || cartItems().length === 0">
+                    [disabled]="!orderForm.valid || cartItems().length === 0">
                     <i class="fa fa-credit-card"></i> Concluir Pedido
             </button>
           </div>
