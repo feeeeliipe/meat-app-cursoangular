@@ -17,10 +17,10 @@ export const ROUTES: Routes = [
             {path: '', redirectTo: 'menu', pathMatch: 'full'},
         ]
     },
-    {path:'order', component: OrderComponent},
     {path:'order-summary', component: OrderSummaryComponent},
 
     // LAZY LOADING 
-    {path:'about', loadChildren: './about/about.module#AboutModule'}
+    {path:'about', loadChildren: './about/about.module#AboutModule'},
+    {path:'order', loadChildren: './order/order.module#OrderModule'},
     
 ]
