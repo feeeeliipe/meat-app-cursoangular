@@ -7,12 +7,15 @@ import { CommonModule } from "@angular/common";
 import { ShoppingCartService } from "app/restaurant-detail/shopping-cart/shopping-cart.service";
 import { OrderService } from "app/order/order.service";
 import { RestaurantService } from "app/restaurants/restaurants.service";
+import { SnackbarComponent } from 'app/shared/messages/snackbar/snackbar.component';
+import { NotificationService } from "./messages/notification.service";
 
 @NgModule({
     declarations: [
         InputComponent,
         RadioComponent,
-        RatingComponent
+        RatingComponent,
+        SnackbarComponent
     ],
 
     imports: [
@@ -26,7 +29,8 @@ import { RestaurantService } from "app/restaurants/restaurants.service";
         RatingComponent,
         FormsModule,
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        SnackbarComponent
     ]
 })
 export class SharedModule {
@@ -36,7 +40,8 @@ export class SharedModule {
             providers: [
                 ShoppingCartService, 
                 OrderService, 
-                RestaurantService
+                RestaurantService,
+                NotificationService
             ]
         }
     }
