@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -39,7 +39,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common'
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     
     // CARREGA OS MODULOS DE LAZY LOADING EM BACKGROUND EM UMA SEGUNDA THREAD

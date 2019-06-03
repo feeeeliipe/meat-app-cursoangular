@@ -1,4 +1,5 @@
 class Order {
+    public id?: string;
     public address: string
     public number: number
     public optionalAddress: string
